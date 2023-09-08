@@ -8,5 +8,5 @@
       state: instlled
   - name: start nginx
     ansible.builtin.service:
-    name: nginx
+  - name: nginx
     state: started
