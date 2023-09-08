@@ -1,5 +1,6 @@
 - name: Install and Run nginx # name is not mandatory, this is best pratice
   hosts: mongodb
+  become: yes #this will give root access
   tasks:
   - name: Install nginx
     ansible.builtin.yum:
