@@ -20,3 +20,5 @@
       name: robohop
     when: output.rc != 0 #if this expression is true then only this module will run 
 
+    # assignment: take username as variable, and then dynmically check user exists or not then create
+
