@@ -1,0 +1,10 @@
+- name: create user
+  hosts: localhost
+  tasks:
+  - name: check roboshop user exuist or not
+    # when you want to run linux commands directly i.e in the case ansible module not available
+    ansible.builtin.command: id roboshop
+    register: output #output is variable name
+  - name: print the command output
+    ansible.builtin.debug:
+      msg: "output is: {{output}}"
