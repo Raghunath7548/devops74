@@ -2,7 +2,7 @@
   hosts: mongodb
   vars:
     NAME: Raghu-play
-  var_files:
+  vars_files:
   - variables.yaml
   vars_prompt:
   - name: NAME
