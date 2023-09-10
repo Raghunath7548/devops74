@@ -1,8 +1,8 @@
 [mongodb]
 mongodb.devopsjoin.online
 
-[cart]
-cart.devopsjoin.online
+[catalogue]
+catalogue.devopsjoin.online
 
 [web]
-cart.devopsjoin.online
+web.devopsjoin.online
