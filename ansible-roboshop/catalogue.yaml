@@ -27,6 +27,6 @@
     resister: directory
 
   - name: print the directory stats
-    ansible.bultin.debug:
+    ansible.builtin.debug:
       msg: "output: {{directory}}"
 
