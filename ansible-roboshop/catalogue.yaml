@@ -4,3 +4,29 @@
   tasks:
   - name: setup NPM source
     ansible.builtin.shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
+  
+  - name: Install NodeJS
+    ansible.builtin.yum:
+      name: nodejs 
+      state: installed
+  
+  - name: check roboshop user exist or not
+    ansible.builtin.command: id robpshop
+    register: out #output is variable name
+    ignore_errors: true
+  
+  - when: out.rc !=0
+    name: create user roboshop
+    become: yes # we need sudo access for this task only
+    ansible.builtin.user:
+      name: roboshop
+  
+  - name: check /app directory exists or not
+    ansible.builtin.stat:
+      path: /app
+    resister: directory
+
+  - name: print the directory stats
+    ansible.bultin.debug:
+      msg: "output: {{directory}}"
+
