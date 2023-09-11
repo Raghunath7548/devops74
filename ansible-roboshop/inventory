@@ -6,3 +6,6 @@ catalogue.devopsjoin.online
 
 [web]
 web.devopsjoin.online
+
+[redis]
+redis.devopsjoin.online
