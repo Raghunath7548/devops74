@@ -4,23 +4,23 @@
   tasks:
   - name: setup NPM source
     ansible.builtin.shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
-  
+
   - name: Install NodeJS
     ansible.builtin.yum:
-      name: nodejs 
+      name: nodejs
       state: installed
-  
+
   - name: check roboshop user exist or not
-    ansible.builtin.command: id robpshop
+    ansible.builtin.command: id roboshop
     register: out #output is variable name
     ignore_errors: true
-  
-  - when: out.rc !=0
+
+  - when: out.rc != 0
     name: create user roboshop
     become: yes # we need sudo access for this task only
     ansible.builtin.user:
       name: roboshop
-  
+
   - name: check /app directory exists or not
     ansible.builtin.stat:
       path: /app
@@ -35,6 +35,7 @@
     ansible.builtin.file:
       path: /app
       state: directory
+
   - name: download user artifact
     ansible.builtin.get_url:
       url: https://roboshop-builds.s3.amazonaws.com/user.zip
@@ -55,11 +56,11 @@
     ansible.builtin.copy:
       src: user.service
       dest: /etc/systemd/system/user.service
-  
+
   - name: deamon reload
     ansible.builtin.systemd:
       daemon_reload: true
-      
+
   - name: copy mongo repo to yum.repos.d
     ansible.builtin.copy:
       src: mongodb.repo
@@ -78,4 +79,3 @@
       name: user
       state: restarted
       enabled: true
-
