@@ -35,6 +35,7 @@
     ansible.builtin.file:
       path: /app
       state: directory
+
   - name: download cart artifact
     ansible.builtin.get_url:
       url: https://roboshop-builds.s3.amazonaws.com/cart.zip
@@ -60,19 +61,6 @@
     ansible.builtin.systemd:
       daemon_reload: true
       
-  - name: copy mongo repo to yum.repos.d
-    ansible.builtin.copy:
-      src: mongodb.repo
-      dest: /etc/yum.repos.d/mongo.repo
-
-  - name: Install MongoDB
-    ansible.builtin.yum:
-      name: mongodb-org-shell
-      state: installed
-
-  - name: load cart data
-    ansible.builtin.command: mongo --host mongodb.devopsjoin.online < /app/schema/cart.js
-
   - name: restart cart
     ansible.builtin.service:
       name: cart
