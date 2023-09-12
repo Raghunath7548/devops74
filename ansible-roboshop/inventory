@@ -12,3 +12,6 @@ redis.devopsjoin.online
 
 [user]
 user.devopsjoin.online
+
+[cart]
+cart.devopsjoin.online
