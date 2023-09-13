@@ -24,5 +24,3 @@
     ansible.builtin.service:
       name: mongod
       state: restarted
-      
-

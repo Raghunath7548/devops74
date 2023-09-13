@@ -15,3 +15,15 @@ user.devopsjoin.online
 
 [cart]
 cart.devopsjoin.online
+
+[mysql]
+mysql.devopsjoin.online
+
+[shipping]
+shipping.devopsjoin.online
+
+[rabbitmq]
+rabbitmq.devopsjoin.online
+
+[payment]
+payment.devopsjoin.online
